@@ -12,11 +12,12 @@ nnoremap ;ss :sp<CR><C-w>w
 " verical split window and focus
 nnoremap ;sv :vsp<CR><C-w>w 
 " quit window
-nnoremap <F4> :q!<CR>
+nnoremap <F4> :qa!<CR>
 map ;w :bd!<CR>
 
 " Move window
 nmap <Space> <C-w>w
+nmap ;<Space> <C-w>W
 map ;<left> <C-w>h
 map ;<up> <C-w>k
 map ;<down> <C-w>j
