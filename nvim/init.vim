@@ -57,3 +57,4 @@ let g:material_style="darker"
 " colorscheme material 
 colorscheme darkplus 
 
+let g:coc_node_path = "~/.nvm/versions/node/v16.15.1/bin/node"

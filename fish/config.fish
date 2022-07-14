@@ -2,21 +2,20 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
+set -gx FZF_DEFAULT_COMMAND "fd --type f --hidden --follow --exclude={.git,node_modules,.DS_Store}"
+set NVM_DIR "$HOME/.nvm"
+
+fish_add_path /opt/homebrew/bin
+
 alias md="mkdir"
 alias vim="nvim"
+alias v="vim"
 alias tmux="tmux -2"
-alias npmg="npm i --location=global"
+alias npmg="npm --location=global"
 alias d="nr dev"
 alias s="nr start"
-alias t="nr test:unit"
-alias e2e="nr test:e2e"
-alias b="nr build"
+alias e2e="nr e2e"
+alias t="nr test"
 alias p="nr preview"
-
-export NVM_DIR="$HOME/.nvm"
-# [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"
-# [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
-
-nvm use default
-clear
+alias lg="lazygit"
 

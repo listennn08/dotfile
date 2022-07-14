@@ -1,20 +1,17 @@
 nnoremap ;t :NvimTreeToggle<CR>
-nnoremap ;r :NvimTreeRefresh<CR>
+" nnoremap ;r :NvimTreeRefresh<CR>
 nnoremap ;n :NvimTreeFindFile<CR>
 
 " More available functions:
-" NvimTreeOpen
-" NvimTreeClose
-" NvimTreeFocus
-" NvimTreeFindFileToggle
-" NvimTreeResize
-" NvimTreeCollapse
-" NvimTreeCollapseKeepBuffers
+"   NvimTreeOpen
+"   NvimTreeClose
+"   NvimTreeFocus
+"   NvimTreeFindFileToggle
+"   NvimTreeResize
+"   NvimTreeCollapse
+"   NvimTreeCollapseKeepBuffers
 
 set termguicolors " this variable must be enabled for colors to be applied properly
-
-" a list of groups can be found at `:help nvim_tree_highlight`
-" highlight NvimTreeFolderIcon guibg=blue
 
 lua << EOF
 
@@ -35,6 +32,8 @@ tree.setup {
   sort_by = "name",
   update_cwd = false,
   reload_on_bufenter = false,
+  respect_buf_cwd = true,
+  create_in_closed_folder = true,
   view = {
     width = 30,
     height = 30,
@@ -60,6 +59,16 @@ tree.setup {
         none = "  ",
       },
     },
+    highlight_git = true,
+    highlight_opened_files = "icon",
+    root_folder_modifier = ":~",
+    add_trailing = true,
+    special_files = {
+      "README.md",
+      "MAKEFILE",
+      "makefile"
+    },
+    group_empty = true,
     icons = {
       webdev_colors = true,
       git_placement = "before",
@@ -67,44 +76,36 @@ tree.setup {
       symlink_arrow = " >> ",
       show = {
         git = true,
-        folder = true,
         file = true,
-        folder_arrow = true,
+        folder = true,
+        folder_arrow = true
       },
+      -- default will show icon by default if no icon is provided
+      -- default shows no icon by default
       glyphs = {
-        default = "",
-        symlink = "",
+        -- default = "",
+        -- symlink = "",
         git = {
-          unstaged = "✗",
-          staged = "✓",
-          unmerged = "",
-          renamed = "➜",
-          untracked = "★",
+          -- unstaged = "✗",
+          -- staged = "✓",
+          -- unmerged = "",
+          -- renamed = "➜",
+          -- untracked = "★",
           untracked = "٭",
-          deleted = "",
-          ignored = "◌"
+          -- deleted = "",
+          -- ignored = "◌"
         },
-        folder = {
-          arrow_open = "",
-          arrow_closed = "",
-          default = "",
-          open = "",
-          empty = "",
-          empty_open = "",
-          symlink = "",
-          symlink_open = "",
-        },
+        -- folder = {
+        --   arrow_open = "",
+        --   arrow_closed = "",
+        --   default = "",
+        --   open = "",
+        --   empty = "",
+        --   empty_open = "",
+        --   symlink = "",
+        --   symlink_open = "",
+        -- }
       },
-    },
-    highlight_git = true,
-    highlight_opened_files = "icon",
-    root_folder_modifier = ":~",
-    add_trailing = true,
-    group_empty = false,
-    special_files = {
-      "README.md", 
-      "Makefile",
-      "MAKEFILE",
     },
   },
   respect_buf_cwd = true,

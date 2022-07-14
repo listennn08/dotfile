@@ -2,19 +2,22 @@
 
 " Select All
 nmap <C-a> gg<S-v>G
+nnoremap <C-d> "_d
 
 " Tab
-nmap te :tabedit
+nmap te :tabedit<CR>
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprev<CR>
 " split window and focus
 nnoremap ;ss :sp<CR><C-w>w
 " verical split window and focus
 nnoremap ;sv :vsp<CR><C-w>w 
+nnoremap ;c <C-w>c
 " quit window
 nnoremap <F4> :qa!<CR>
 map ;w :bd!<CR>
 
+map <C-s> :w<CR>
 " Move window
 nmap <Space> <C-w>w
 nmap ;<Space> <C-w>W
